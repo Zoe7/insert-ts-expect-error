@@ -106,7 +106,7 @@ class TsExpectErrorProvider implements vscode.CodeActionProvider {
     const position = new vscode.Position(range.start.line, 0);
 
     const indentation = findIndentationLevel(document, range);
-    const commentText = `@ts-expect-error ${truncatedErrorMessage} ts(${diagnostic.code})`;
+    const commentText = `@ts-expect-error TS(${diagnostic.code}): ${truncatedErrorMessage}`;
 
     const comment = this.isJsx(document, position)
       ? `${indentation}{/* ${commentText} */}`
