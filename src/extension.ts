@@ -92,10 +92,16 @@ class TsExpectErrorProvider implements vscode.CodeActionProvider {
     );
     fix.edit = new vscode.WorkspaceEdit();
 
+    const sanitizedErrorMessage = diagnostic.message
+      .split(/(?:\r\n|\r|\n)/)
+      .map((line) => line.replace(/\t/g, ""))
+      .map((line) => line.trim())
+      .join(" ");
+
     const truncatedErrorMessage =
-      diagnostic.message.length > 60
-        ? `${diagnostic.message.substring(0, 57)}...`
-        : diagnostic.message;
+      sanitizedErrorMessage.length > 60
+        ? `${sanitizedErrorMessage.substring(0, 57)}...`
+        : sanitizedErrorMessage;
 
     const position = new vscode.Position(range.start.line, 0);
 
