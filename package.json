@@ -2,7 +2,7 @@
   "name": "insert-ts-expect-error",
   "displayName": "insert-ts-expect-error",
   "description": "Small extension to add a quick fix action to insert a `@ts-expect-error` comment when encountering typescript errors.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.93.0"
   },
